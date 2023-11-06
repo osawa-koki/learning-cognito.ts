@@ -1,4 +1,3 @@
-
 interface UpdateAttributesStruct {
   comment: string
 }

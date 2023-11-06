@@ -1,4 +1,3 @@
-
 interface ConfirmPasswordStruct {
   email: string
   verification_code: string

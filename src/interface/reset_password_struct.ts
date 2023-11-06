@@ -1,4 +1,3 @@
-
 interface ResetPasswordStruct {
   email: string
 }

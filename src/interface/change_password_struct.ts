@@ -1,4 +1,3 @@
-
 interface ChangePasswordStruct {
   email: string
   old_password: string

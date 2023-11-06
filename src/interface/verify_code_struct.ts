@@ -1,4 +1,3 @@
-
 interface VerifyCodeStruct {
   email: string
   code: string

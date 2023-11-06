@@ -1,4 +1,3 @@
-
 interface SignInStruct {
   email: string
   password: string
