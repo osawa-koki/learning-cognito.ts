@@ -1,13 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  play-with-cognito
+  learning-cognito.ts
 
-  Sample SAM Template for play-with-cognito
-
-Globals:
-  Function:
-    Timeout: 10
+  Sample SAM Template for learning-cognito.ts
 
 Resources:
   # ユーザプール(認証部分)の定義
