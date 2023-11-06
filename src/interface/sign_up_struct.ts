@@ -1,4 +1,3 @@
-
 interface SignUpStruct {
   name: string
   email: string
