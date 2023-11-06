@@ -7,6 +7,10 @@
   "author": "osawa-koki <github@osawa.dev>",
   "license": "Apache-2.0",
   "private": false,
+  "engines": {
+    "node": ">=20.0.0",
+    "yarn": ">=1.22.0"
+  },
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "start": "ts-node ./src/index.ts",
