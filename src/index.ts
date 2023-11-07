@@ -8,6 +8,7 @@ import makeCognitoUserAttributes from './common/makeCognitoUserAttributes'
 import {
   type SignUpStruct,
   type VerifyCodeStruct,
+  type ResendCodeStruct,
   type SignInStruct,
   type ChangePasswordStruct,
   type ResetPasswordStruct,
@@ -123,6 +124,40 @@ app.post('/verify_code', (req, res) => {
       res.status(statusCode.INTERNAL_SERVER_ERROR).send(JSON.stringify({
         message: 'Server error occurred while verify code.',
         error: err?.message
+      }))
+    }
+  })
+})
+
+app.post('/resend_code', (req, res) => {
+  const body: ResendCodeStruct = req.body
+  const email = body.email
+
+  const userData = {
+    Username: email,
+    Pool: userPool
+  }
+  const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData)
+
+  cognitoUser.resendConfirmationCode((err, result) => {
+    // 再送信がエラーとなった場合の処理
+    if (err != null) {
+      res.status(statusCode.CLIENT_ERROR).send(JSON.stringify({
+        message: 'Value is invalid.',
+        error: err?.message
+      }))
+      return
+    }
+
+    // 再送信が成功した場合の処理
+    if (result != null) {
+      res.status(statusCode.SUCCESS).send(JSON.stringify({
+        message: 'Success.',
+        result
+      }))
+    } else {
+      res.status(statusCode.INTERNAL_SERVER_ERROR).send(JSON.stringify({
+        message: 'Server error occurred while resend code.'
       }))
     }
   })
